@@ -17,7 +17,7 @@ class PingTVAccessory {
     this.config = config;
     this.name = config.name;
     this.ipAddress = config.ipAddress;
-    this.pingInterval = config.pingInterval || 5000; // domy   ^{lnie ping co 5 sekund
+    this.pingInterval = config.pingInterval || 5000; // default value 5s
     this.category = Categories[config.category] || Categories.TELEVISION;
 
     this.service = new Service.Television(this.name, 'Television');
