@@ -19,6 +19,8 @@ class PingTVAccessory {
     this.ipAddress = config.ipAddress;
     this.pingInterval = config.pingInterval || 5000; // default value 5s
     this.category = Categories[config.category] || Categories.TELEVISION;
+    this.manufacturer = config.manufacturer || "Custom Manufacturer";
+    this.model = config.model || "Custom Model";
 
     this.service = new Service.Television(this.name, 'Television');
     this.setupAccessoryInformation();
@@ -29,9 +31,9 @@ class PingTVAccessory {
 
   setupAccessoryInformation() {
     this.informationService = new Service.AccessoryInformation()
-      .setCharacteristic(Characteristic.Manufacturer, "Custom Manufacturer")
-      .setCharacteristic(Characteristic.Model, "Custom Model")
-      .setCharacteristic(Characteristic.SerialNumber, "Custom Serial Number");
+      .setCharacteristic(Characteristic.Manufacturer, this.manufacturer)
+      .setCharacteristic(Characteristic.Model, this.model)
+      .setCharacteristic(Characteristic.SerialNumber, this.ipAddress);
   }
 
   setupTelevisionService() {
@@ -41,15 +43,15 @@ class PingTVAccessory {
       .on('get', this.getActiveState.bind(this));
   }
 
-        checkDeviceStatus() {
-            setInterval(() => {
-                ping.sys.probe(this.ipAddress, (isAlive) => {
-                    const status = isAlive ? Characteristic.Active.ACTIVE : Characteristic.Active.INACTIVE;
-                    this.service.updateCharacteristic(Characteristic.Active, status);
-                    this.log(`Pinging IP Address ${this.ipAddress}: Device is ${isAlive ? 'active' : 'inactive'}.`);
-                });
-            }, this.pingInterval);
-        }
+  checkDeviceStatus() {
+    setInterval(() => {
+      ping.sys.probe(this.ipAddress, (isAlive) => {
+        const status = isAlive ? Characteristic.Active.ACTIVE : Characteristic.Active.INACTIVE;
+        this.service.updateCharacteristic(Characteristic.Active, status);
+        this.log(`Pinging IP Address ${this.ipAddress}: Device is ${isAlive ? 'active' : 'inactive'}.`);
+      });
+    }, this.pingInterval);
+  }
 
   getActiveState(callback) {
     ping.sys.probe(this.ipAddress, (isAlive) => {

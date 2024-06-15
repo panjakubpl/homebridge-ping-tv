@@ -28,7 +28,10 @@ Add the plugin to your Homebridge config.json file:
     {
       "accessory": "PingTV",
       "name": "Living Room TV",
-      "ipAddress": "192.168.1.100"
+      "ipAddress": "192.168.1.100",
+      "manufacturer": "Custom Manufacturer",
+      "model": "Custom Model",
+      "pingInterval": 5000
     }
   ]
 }
@@ -38,6 +41,9 @@ Explanation:
 * accessory: (Required) Must be PingTV.
 * name: (Required) Name of the TV accessory.
 * ipAddress: (Required) IP address of your TV.
+* manufacturer: (Optional) Manufacturer name of the TV accessory.
+* model: (Optional) Model name of the TV accessory.
+* pingInterval: (Optional) Interval in milliseconds between pings (default is 5000).
 
 Here is an example configuration:
 
@@ -47,12 +53,18 @@ Here is an example configuration:
     {
       "accessory": "PingTV",
       "name": "Bedroom TV",
-      "ipAddress": "192.168.1.101"
+      "ipAddress": "192.168.1.101",
+      "manufacturer": "Custom Manufacturer",
+      "model": "Custom Model",
+      "pingInterval": 5000
     },
     {
       "accessory": "PingTV",
       "name": "Kitchen TV",
-      "ipAddress": "192.168.1.102"
+      "ipAddress": "192.168.1.102",
+      "manufacturer": "Another Manufacturer",
+      "model": "Another Model",
+      "pingInterval": 10000
     }
   ]
 }
