@@ -46,7 +46,6 @@ class PingTVAccessory {
                 ping.sys.probe(this.ipAddress, (isAlive) => {
                     const status = isAlive ? Characteristic.Active.ACTIVE : Characteristic.Active.INACTIVE;
                     this.service.updateCharacteristic(Characteristic.Active, status);
-                    // Dodajemy logowanie stanu urz   ^edzenia.
                     this.log(`Pinging IP Address ${this.ipAddress}: Device is ${isAlive ? 'active' : 'inactive'}.`);
                 });
             }, this.pingInterval);
