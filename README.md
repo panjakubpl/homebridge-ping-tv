@@ -28,7 +28,7 @@ Add the plugin to your Homebridge config.json file:
     {
       "accessory": "PingTV",
       "name": "Living Room TV",
-      "ip": "192.168.1.100"
+      "ipAddress": "192.168.1.100"
     }
   ]
 }
@@ -47,12 +47,12 @@ Here is an example configuration:
     {
       "accessory": "PingTV",
       "name": "Bedroom TV",
-      "ip": "192.168.1.101"
+      "ipAddress": "192.168.1.101"
     },
     {
       "accessory": "PingTV",
       "name": "Kitchen TV",
-      "ip": "192.168.1.102"
+      "ipAddress": "192.168.1.102"
     }
   ]
 }
