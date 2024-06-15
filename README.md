@@ -34,10 +34,10 @@ Add the plugin to your Homebridge config.json file:
 }
 ```
 
-accessory: (Required) Must be PingTV.
-name: (Required) Name of the TV accessory.
-ip: (Required) IP address of your TV.
-Configuration Example
+Explanation:
+* accessory: (Required) Must be PingTV.
+* name: (Required) Name of the TV accessory.
+* ipAddress: (Required) IP address of your TV.
 
 Here is an example configuration:
 
