@@ -1,15 +1,17 @@
 {
   "name": "homebridge-ping-tv",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Homebridge plugin for IP TV",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "homebridge-plugin"
+    "homebridge-plugin",
+    "tv",
+    "ping"
   ],
-  "author": "Jakub <jch@wdz.net.pl>",
+  "author": "Jakub <jakub@wdz.net.pl>",
   "license": "ISC",
   "dependencies": {
     "ping": "^0.4.4"
@@ -22,5 +24,8 @@
   },
   "contributors": [
     "Jakub <jakub@wdz.net.pl>"
-  ]
+  ],
+  "homebridge": {
+    "schema": "config.schema.json"
+  }
 }
